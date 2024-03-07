@@ -6,7 +6,6 @@ import az.edu.ada.wm2.workingwithrelationaldatademojpa.service.TeamService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.ArrayList;
 
 @Service
 public class TeamServiceImpl implements TeamService {

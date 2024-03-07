@@ -1,8 +1,6 @@
 package az.edu.ada.wm2.workingwithrelationaldatademojpa.controller;
 
-import az.edu.ada.wm2.workingwithrelationaldatademojpa.model.Driver;
 import az.edu.ada.wm2.workingwithrelationaldatademojpa.model.Team;
-import az.edu.ada.wm2.workingwithrelationaldatademojpa.service.DriverService;
 import az.edu.ada.wm2.workingwithrelationaldatademojpa.service.TeamService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
