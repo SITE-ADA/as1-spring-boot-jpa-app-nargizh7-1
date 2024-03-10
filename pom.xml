@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>az.edu.ada.wm2</groupId>
-    <artifactId>working-with-relational-data-demo-jpa</artifactId>
+    <artifactId>AS1</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>working-with-relational-data-demo-jpa</name>
     <description>Spring data JPA + relationships</description>
