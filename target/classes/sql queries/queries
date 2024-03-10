@@ -1,0 +1,24 @@
+// To add a driver to a team
+INSERT INTO driver_teams (driver_id, team_id)
+VALUES (<driver_id>, <team_id>);
+
+// To remove a driver from a team
+DELETE FROM driver_teams
+WHERE driver_id = <driver_id> AND team_id = <team_id>;
+
+// Get the names of all drivers who are not currently on a team
+SELECT name FROM drivers
+WHERE id NOT IN (SELECT driver_id FROM driver_teams);
+
+// Get the names of all teams and the number of drivers on each team:
+SELECT teams.name, COUNT(driver_teams.driver_id) AS num_drivers
+FROM teams
+LEFT JOIN driver_teams ON teams.id = driver_teams.team_id
+GROUP BY teams.id;
+
+// Get the names of all drivers who are on a team and the name of their team, sorted by team name:
+SELECT drivers.name, teams.name AS team_name
+FROM drivers
+JOIN driver_teams ON drivers.id = driver_teams.driver_id
+JOIN teams ON driver_teams.team_id = teams.id
+ORDER BY teams.name;

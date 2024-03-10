@@ -1,0 +1,12 @@
+az\edu\ada\wm2\workingwithrelationaldatademojpa\config\WebMVCConfig.class
+az\edu\ada\wm2\workingwithrelationaldatademojpa\controller\DriverController.class
+az\edu\ada\wm2\workingwithrelationaldatademojpa\repository\DriverRepository.class
+az\edu\ada\wm2\workingwithrelationaldatademojpa\model\Driver.class
+az\edu\ada\wm2\workingwithrelationaldatademojpa\service\impl\DriverServiceImpl.class
+az\edu\ada\wm2\workingwithrelationaldatademojpa\service\DriverService.class
+az\edu\ada\wm2\workingwithrelationaldatademojpa\WorkingWithRelationalDataDemoJpaApplication.class
+az\edu\ada\wm2\workingwithrelationaldatademojpa\repository\TeamRepository.class
+az\edu\ada\wm2\workingwithrelationaldatademojpa\model\Team.class
+az\edu\ada\wm2\workingwithrelationaldatademojpa\service\TeamService.class
+az\edu\ada\wm2\workingwithrelationaldatademojpa\service\impl\TeamServiceImpl.class
+az\edu\ada\wm2\workingwithrelationaldatademojpa\controller\TeamController.class
