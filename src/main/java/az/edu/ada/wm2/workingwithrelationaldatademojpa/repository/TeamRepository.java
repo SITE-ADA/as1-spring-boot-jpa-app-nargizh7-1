@@ -5,17 +5,13 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.util.List;
+
 public interface TeamRepository extends JpaRepository<Team, Long> {
+    // Example custom query method
+    List<Team> findByCountry(String country);
 
-    Iterable<Team> findByDriversId(Long id);
-
-    @Query("select c from Team c where c not in " +
-            "(select c from Team c left join c.drivers std where std.id = :id)")
-    Iterable<Team> findByDriversIdNot(Long id);
-
-    @Query("select c from Team c where lower(c.country) like %:keyword%")
-    Iterable<Team> getAllWebTeamsUsingJPAQuery(@Param("keyword") String keyword);
-
-    @Query(value = "select * from teams where description like '%Web%'", nativeQuery = true)
-    Iterable<Team> getAllWebTeamsUsingNativeQuery();
+    // Using @Query to fetch teams with a specific minimum number of wins
+    @Query("SELECT t FROM Team t WHERE t.wins >= :minWins")
+    List<Team> findTeamsWithMinWins(@Param("minWins") int minWins);
 }

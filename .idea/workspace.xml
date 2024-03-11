@@ -5,13 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d8a4f67d-302e-4144-83b9-1f14892af565" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/main - Shortcut.lnk" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/teams/add_driver.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/az/edu/ada/wm2/workingwithrelationaldatademojpa/repository/DriverRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/az/edu/ada/wm2/workingwithrelationaldatademojpa/repository/DriverRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/az/edu/ada/wm2/workingwithrelationaldatademojpa/repository/TeamRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/az/edu/ada/wm2/workingwithrelationaldatademojpa/repository/TeamRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/drivers/add_team.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/drivers/add_team.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/drivers/new.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/drivers/new.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/drivers/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/drivers/update.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/drivers/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/drivers/index_drivers.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/drivers/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/drivers/update_team.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/teams/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/teams/index_teams.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/teams/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/teams/update_driver.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
