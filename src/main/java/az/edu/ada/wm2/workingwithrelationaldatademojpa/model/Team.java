@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 
 import java.util.HashSet;
 import java.util.Set;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -19,26 +20,16 @@ public class Team {
     private Long id;
 
     private String name;
-
     private String country;
-
     private Integer wins;
 
+    // Establishes the other side of a many-to-many relationship with Driver
     @ManyToMany(mappedBy = "teams")
     private Set<Driver> drivers = new HashSet<>();
 
-    public Team(String name, String country, Integer wins) {
-        this.name = name;
-        this.country = country;
-        this.wins = wins;
-    }
-
-    public Team(String name, Integer wins) {
-        this(name, name, wins);
-    }
-
+    // Custom toString method for logging and debugging
     @Override
     public String toString() {
-        return "Team: " + this.name + ": " + this.country;
+        return "Team: " + name + ", " + country;
     }
 }

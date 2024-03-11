@@ -1,107 +1,72 @@
 package az.edu.ada.wm2.workingwithrelationaldatademojpa.controller;
 
-import az.edu.ada.wm2.workingwithrelationaldatademojpa.model.Team;
 import az.edu.ada.wm2.workingwithrelationaldatademojpa.model.Driver;
 import az.edu.ada.wm2.workingwithrelationaldatademojpa.service.DriverService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.data.domain.Page;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
 @Controller
-@RequestMapping("/driver")
+@RequestMapping("/drivers")
 public class DriverController {
-    static final Logger LOGGER = LoggerFactory.getLogger(DriverController.class);
 
-     DriverService driverService;
+    private final DriverService driverService;
 
+    @Autowired
     public DriverController(DriverService driverService) {
         this.driverService = driverService;
     }
 
-    @GetMapping({"", "/", "/list"})
-    public String getDrivers(Model model) {
-        return getDriversByPageNo(model, 1);
+    @GetMapping
+    public String listDrivers(Model model) {
+        List<Driver> drivers = driverService.getAllDrivers();
+        model.addAttribute("drivers", drivers);
+        return "drivers/list"; // Thymeleaf template for listing drivers
     }
 
-    @GetMapping("/page/{no}")
-    public String getDriversByPageNo(Model model, @PathVariable("no") Integer pageNo) {
-        Page<Driver> driversPage = driverService.list(pageNo);
-        model.addAttribute("drivers", driversPage);
-        model.addAttribute("drivers", driversPage.getContent());
-        model.addAttribute("currentPage", pageNo);
-        model.addAttribute("totalPages", driversPage.getTotalPages());
-        model.addAttribute("nbElements", driversPage.getNumberOfElements());
-        model.addAttribute("totalElements", driversPage.getTotalElements());
-        return "drivers/index";
+    @GetMapping("/{id}")
+    public String getDriver(@PathVariable Long id, Model model) {
+        Driver driver = driverService.getDriverById(id);
+        model.addAttribute("driver", driver);
+        return "drivers/detail"; // Thymeleaf template for showing driver details
     }
 
     @GetMapping("/new")
-    public String createNewDriver(Model model) {
-        model.addAttribute("driver", new Driver());
-        return "drivers/new";
+    public String createDriverForm(Model model) {
+        Driver driver = new Driver(); // Create an empty driver to hold form data
+        model.addAttribute("driver", driver);
+        return "drivers/create"; // Thymeleaf template for the driver creation form
     }
 
-    @PostMapping("/")
-    public String save(@ModelAttribute("driver") Driver driver) {
-        driverService.save(driver);
-        return "redirect:/driver/";
+    @PostMapping
+    public String saveDriver(@ModelAttribute("driver") Driver driver) {
+        driverService.saveOrUpdateDriver(driver);
+        return "redirect:/drivers"; // Redirect to the listing page after saving
+    }
+
+    @GetMapping("/edit/{id}")
+    public String editDriverForm(@PathVariable Long id, Model model) {
+        Driver driver = driverService.getDriverById(id);
+        model.addAttribute("driver", driver);
+        return "drivers/edit"; // Thymeleaf template for the driver edit form
+    }
+
+    @PostMapping("/{id}")
+    public String updateDriver(@PathVariable Long id, @ModelAttribute("driver") Driver driver) {
+        // Set the ID to ensure the existing driver is updated
+        driver.setId(id);
+        driverService.saveOrUpdateDriver(driver);
+        return "redirect:/drivers"; // Redirect to the listing page after updating
     }
 
     @GetMapping("/delete/{id}")
-    public String delete(@PathVariable Long id) {
-        driverService.deleteById(id);
-        return "redirect:/driver/";
+    public String deleteDriver(@PathVariable Long id) {
+        driverService.deleteDriver(id);
+        return "redirect:/drivers"; // Redirect to the listing page after deletion
     }
 
-    @GetMapping("/update/{id}")
-    public ModelAndView updateDriver(@PathVariable Long id) {
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("drivers/update");
-
-        mv.addObject("driver", driverService.getById(id));
-        return mv;
-    }
-
-
-    @GetMapping("/and/{firstName}/{lastName}")
-    public String getDriverByNameAnd(Model model, @PathVariable String firstName, @PathVariable String lastName) {
-
-        var driver = driverService.getDriverByNamesAnd(firstName, lastName);
-
-        model.addAttribute("drivers", driver);
-
-        return "drivers/index";
-    }
-
-    @GetMapping("/or/{firstName}/{lastName}")
-    public String getDriverByNameOr(Model model, @PathVariable String firstName, @PathVariable String lastName) {
-        model.addAttribute("drivers", driverService.getDriverByNamesOr(firstName, lastName));
-
-        return "drivers/index";
-    }
-
-    @GetMapping("/{id}/teams")
-    public String getTeamsByDriverId(Model model, @PathVariable Long id) {
-        model.addAttribute("teams", driverService.getTeamsByDriverId(id));
-        return "teams/index";
-    }
-
-    @GetMapping("/{id}/addTeam")
-    public String addTeamPage(Model model, @PathVariable Long id) {
-
-        Driver stud = driverService.getById(id);
-        model.addAttribute("driver", stud);
-
-        List<Team> allTeams = driverService.getTeamsByDriverIdNot(id);
-        model.addAttribute("teams", allTeams);
-        return "drivers/add_team";
-    }
+    // Additional handler methods for filtering, sorting, and pagination can be added here
 }

@@ -22,6 +22,7 @@ public class Driver {
     private String firstName;
     private String lastName;
 
+    // Defines a many-to-many relationship with Team
     @ManyToMany
     @JoinTable(name = "driver_team",
             joinColumns = {@JoinColumn(name = "driver_id")},
@@ -29,6 +30,7 @@ public class Driver {
     )
     private Set<Team> teams = new HashSet<>();
 
+    // Custom toString method for logging and debugging
     @Override
     public String toString() {
         return "Driver: " + firstName + ", " + lastName;

@@ -1,44 +1,43 @@
-package az.edu.ada.wm2.workingwithrelationaldatademojpa.service.impl;
+package az.edu.ada.wm2.workingwithrelationaldatademojpa.service;
 
 import az.edu.ada.wm2.workingwithrelationaldatademojpa.model.Team;
 import az.edu.ada.wm2.workingwithrelationaldatademojpa.repository.TeamRepository;
-import az.edu.ada.wm2.workingwithrelationaldatademojpa.service.TeamService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TeamServiceImpl implements TeamService {
 
-    TeamRepository teamRepo;
+    private final TeamRepository teamRepository;
 
-    public TeamServiceImpl(TeamRepository teamRepo) {
-        this.teamRepo = teamRepo;
+    @Autowired
+    public TeamServiceImpl(TeamRepository teamRepository) {
+        this.teamRepository = teamRepository;
     }
 
     @Override
-    public List<Team> list() {
-        return (List<Team>) teamRepo.findAll();
+    public List<Team> getAllTeams() {
+        return teamRepository.findAll();
     }
 
     @Override
-    public Team save(Team team) {
-        return teamRepo.save(team);
+    public Team getTeamById(Long id) {
+        Optional<Team> team = teamRepository.findById(id);
+        return team.orElse(null);
     }
 
     @Override
-    public Team getById(Long id) {
-        return teamRepo.findById(id).orElse(null);
+    public Team saveOrUpdateTeam(Team team) {
+        return teamRepository.save(team);
     }
 
     @Override
-    public void deleteById(Long id) {
-        teamRepo.deleteById(id);
+    public void deleteTeam(Long id) {
+        teamRepository.deleteById(id);
     }
 
-    public List<Team> getAllWebTeams(String keyword) {
-        return (List<Team>) teamRepo.getAllWebTeamsUsingJPAQuery(keyword);
-    }
-
-
+    // Implement additional business logic methods as needed
 }

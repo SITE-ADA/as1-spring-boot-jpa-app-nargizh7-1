@@ -2,67 +2,71 @@ package az.edu.ada.wm2.workingwithrelationaldatademojpa.controller;
 
 import az.edu.ada.wm2.workingwithrelationaldatademojpa.model.Team;
 import az.edu.ada.wm2.workingwithrelationaldatademojpa.service.TeamService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
 @Controller
-@RequestMapping("/team")
+@RequestMapping("/teams")
 public class TeamController {
-    static final Logger LOGGER = LoggerFactory.getLogger(TeamController.class);
 
-    TeamService teamService;
+    private final TeamService teamService;
 
+    @Autowired
     public TeamController(TeamService teamService) {
         this.teamService = teamService;
     }
 
-    @GetMapping({"", "/", "/list"})
-    public String getTeams(Model model) {
-        List<Team> teams = teamService.list();
+    @GetMapping
+    public String listTeams(Model model) {
+        List<Team> teams = teamService.getAllTeams();
         model.addAttribute("teams", teams);
+        return "teams/list"; // Thymeleaf template for listing teams
+    }
 
-        LOGGER.info(teams.toString());
-
-        return "teams/index";
+    @GetMapping("/{id}")
+    public String getTeam(@PathVariable Long id, Model model) {
+        Team team = teamService.getTeamById(id);
+        model.addAttribute("team", team);
+        return "teams/detail"; // Thymeleaf template for showing team details
     }
 
     @GetMapping("/new")
-    public String createNewTeam(Model model) {
-        model.addAttribute("team", new Team());
-        return "teams/new";
+    public String createTeamForm(Model model) {
+        Team team = new Team(); // Create an empty team to hold form data
+        model.addAttribute("team", team);
+        return "teams/create"; // Thymeleaf template for the team creation form
     }
 
-    @PostMapping("/")
-    public String save(@ModelAttribute("team") Team team) {
-        teamService.save(team);
-        return "redirect:/team/";
+    @PostMapping
+    public String saveTeam(@ModelAttribute("team") Team team) {
+        teamService.saveOrUpdateTeam(team);
+        return "redirect:/teams"; // Redirect to the listing page after saving
+    }
+
+    @GetMapping("/edit/{id}")
+    public String editTeamForm(@PathVariable Long id, Model model) {
+        Team team = teamService.getTeamById(id);
+        model.addAttribute("team", team);
+        return "teams/edit"; // Thymeleaf template for the team edit form
+    }
+
+    @PostMapping("/{id}")
+    public String updateTeam(@PathVariable Long id, @ModelAttribute("team") Team team) {
+        // Set the ID to ensure the existing team is updated
+        team.setId(id);
+        teamService.saveOrUpdateTeam(team);
+        return "redirect:/teams"; // Redirect to the listing page after updating
     }
 
     @GetMapping("/delete/{id}")
-    public String delete(@PathVariable Long id) {
-        teamService.deleteById(id);
-        return "redirect:/team/";
+    public String deleteTeam(@PathVariable Long id) {
+        teamService.deleteTeam(id);
+        return "redirect:/teams"; // Redirect to the listing page after deletion
     }
 
-    @GetMapping("/update/{id}")
-    public ModelAndView updateTeam(@PathVariable Long id) {
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("teams/update");
-
-        mv.addObject("team", teamService.getById(id));
-        return mv;
-    }
-
-    @GetMapping("/filter/{keyword}")
-    public String getWebTeams(Model model, @PathVariable String keyword) {
-        model.addAttribute("teams", teamService.getAllWebTeams(keyword));
-
-        return "teams/index";
-    }
+    // Additional handler methods for filtering, sorting, and pagination can be added here
 }
