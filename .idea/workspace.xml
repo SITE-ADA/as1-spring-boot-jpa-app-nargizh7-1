@@ -5,16 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d8a4f67d-302e-4144-83b9-1f14892af565" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/teams/add_driver.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/az/edu/ada/wm2/workingwithrelationaldatademojpa/repository/DriverRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/az/edu/ada/wm2/workingwithrelationaldatademojpa/repository/DriverRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/az/edu/ada/wm2/workingwithrelationaldatademojpa/repository/TeamRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/az/edu/ada/wm2/workingwithrelationaldatademojpa/repository/TeamRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/drivers/add_team.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/drivers/add_team.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/drivers/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/drivers/index_drivers.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/drivers/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/drivers/update_team.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/teams/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/teams/index_teams.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/teams/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/teams/update_driver.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/az/edu/ada/wm2/workingwithrelationaldatademojpa/WorkingWithRelationalDataDemoJpaApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/az/edu/ada/wm2/workingwithrelationaldatademojpa/WorkingWithRelationalDataDemoJpaApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/az/edu/ada/wm2/workingwithrelationaldatademojpa/config/WebMVCConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/az/edu/ada/wm2/config/WebMVCConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/az/edu/ada/wm2/workingwithrelationaldatademojpa/controller/DriverController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/az/edu/ada/wm2/controller/DriverController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/az/edu/ada/wm2/workingwithrelationaldatademojpa/controller/TeamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/az/edu/ada/wm2/controller/TeamController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/az/edu/ada/wm2/workingwithrelationaldatademojpa/model/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/az/edu/ada/wm2/model/Driver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/az/edu/ada/wm2/workingwithrelationaldatademojpa/model/Team.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/az/edu/ada/wm2/model/Team.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/az/edu/ada/wm2/workingwithrelationaldatademojpa/repository/DriverRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/az/edu/ada/wm2/repository/DriverRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/az/edu/ada/wm2/workingwithrelationaldatademojpa/repository/TeamRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/az/edu/ada/wm2/repository/TeamRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/az/edu/ada/wm2/workingwithrelationaldatademojpa/service/DriverService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/az/edu/ada/wm2/service/DriverService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/az/edu/ada/wm2/workingwithrelationaldatademojpa/service/TeamService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/az/edu/ada/wm2/service/TeamService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/az/edu/ada/wm2/workingwithrelationaldatademojpa/service/impl/DriverServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/az/edu/ada/wm2/service/impl/DriverServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/az/edu/ada/wm2/workingwithrelationaldatademojpa/service/impl/TeamServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/az/edu/ada/wm2/service/impl/TeamServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/drivers/add_team.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/drivers/add_team.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/drivers/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/drivers/new.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/drivers/new.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/drivers/update.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/teams/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/teams/update.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/working-with-relational-data-demo-jpa-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/working-with-relational-data-demo-jpa-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +69,7 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "Maven.AS1 [org.springframework.boot:spring-boot-maven-plugin:3.0.2:process-aot].executor": "Run",
     "Maven.AS1 [org.springframework.boot:spring-boot-maven-plugin:3.0.2:run].executor": "Run",
+    "Maven.working-with-relational-data-demo-jpa [org.springframework.boot:spring-boot-maven-plugin:3.1.4:run].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -63,6 +79,11 @@
     "last_opened_file_path": "C:/Users/nargi/OneDrive/Рабочий стол/web2/as1-spring-boot-jpa-app-nargizh7"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="az.edu.ada.wm2" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

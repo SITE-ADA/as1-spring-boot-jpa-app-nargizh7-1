@@ -1,123 +1,50 @@
-<!doctype html>
-<html lang="en"
-      xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home page</title>
-    <style>
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background-image: url('https://i.guim.co.uk/img/media/0c1df608152fc70f933f4f2db0bbb524e55936b7/0_66_4785_2872/master/4785.jpg?width=1200&height=900&quality=85&auto=format&fit=crop&s=a07ab94855a76428bacfbf1bff260cc7');
-      background-size: cover;
-      background-attachment: fixed;
-      margin: 0;
-      padding: 0;
-    }
+body {
+font-family: Arial, sans-serif;
+}
 
-    h2, h3, h4 {
-      text-align: center;
-      color: white;
-    }
+header {
+background-color: #007bff;
+color: white;
+padding: 10px;
+text-align: center;
+}
 
-     h2 {
-      font-size: 4em;
-      text-shadow: 0px 4px 4px #282828;
-    }
+nav ul {
+list-style-type: none;
+padding: 0;
+}
 
-     h3 {
-      font-size: 2em;
-      text-shadow: 0px 4px 4px #282828;
-    }
+nav ul li {
+display: inline;
+margin-right: 10px;
+}
 
-     h4 {
-      font-size: 1.7em;
-      text-shadow: 0px 4px 4px #282828;
-    }
+nav ul li a {
+text-decoration: none;
+color: white;
+background-color: #007bff;
+padding: 5px;
+border-radius: 5px;
+}
 
-    th, td {
-      padding: 12px 15px;
-      text-align: center;
-      border: 1px solid #ddd;
-    }
+form {
+margin-top: 20px;
+}
 
-    th {
-      color: white;
-      background-color: #333;
-      color: #fff;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-weight: bold;
-    }
+form label, form input {
+display: block;
+margin-bottom: 10px;
+}
 
-    td {
-      background-color: #f5f5f5;
-    }
+form input[type="submit"] {
+background-color: #007bff;
+color: white;
+padding: 10px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+}
 
-    a {
-      border: 2px solid #f44336;
-      transition: all 0.3s ease-in-out;
-      display: inline-block;
-      padding: 8px 16px;
-      margin-top: 20px;
-      background-color: #f44336;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 4px;
-    }
-
-    a:hover {
-      background-color: #fff;
-      color: #f44336;
-      border: 2px solid #f44336;
-    }
-
-    .page-info {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-        color: white;
-        font-weight: bold;
-        font-size: 1.2em;
-    }
-
-    @media screen and (max-width: 600px) {
-      table {
-        width: 100%;
-      }
-
-      td, th {
-        display: block;
-        text-align: right;
-      }
-
-      td::before {
-        content: attr(data-label);
-        float: left;
-        font-weight: bold;
-      }
-    }
-    </style>
-</head>
-
-<body>
-<h2>Formula 1 </h2>
-<h3>Access H2 Database from this Page by adding "/h2" to the link</h3>
-<h4>Check and Modify the Current Information</h4>
-
-
-<div class="page-info">
-    <br />    <br />
-    <a th:href="@{/driver/}">Drivers Page</a>
-    <br />
-    <a th:href="@{/team/}">Teams Page</a>
-
-</div>
-
-</body>
-</html>
+form input[type="submit"]:hover {
+background-color: #0056b3;
+}

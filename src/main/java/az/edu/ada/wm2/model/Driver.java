@@ -1,4 +1,4 @@
-package az.edu.ada.wm2.workingwithrelationaldatademojpa.model;
+package az.edu.ada.wm2.model;
 
 import lombok.*;
 

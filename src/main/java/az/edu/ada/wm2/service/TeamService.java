@@ -1,6 +1,6 @@
-package az.edu.ada.wm2.workingwithrelationaldatademojpa.service;
+package az.edu.ada.wm2.service;
 
-import az.edu.ada.wm2.workingwithrelationaldatademojpa.model.Team;
+import az.edu.ada.wm2.model.Team;
 import java.util.List;
 
 public interface TeamService {

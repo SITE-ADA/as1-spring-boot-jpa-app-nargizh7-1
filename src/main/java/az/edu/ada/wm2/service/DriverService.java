@@ -1,6 +1,7 @@
-package az.edu.ada.wm2.workingwithrelationaldatademojpa.service;
+package az.edu.ada.wm2.service;
 
-import az.edu.ada.wm2.workingwithrelationaldatademojpa.model.Driver;
+import az.edu.ada.wm2.model.Driver;
+
 import java.util.List;
 
 public interface DriverService {

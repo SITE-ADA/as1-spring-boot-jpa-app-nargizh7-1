@@ -1,7 +1,8 @@
-package az.edu.ada.wm2.workingwithrelationaldatademojpa.service;
+package az.edu.ada.wm2.service.impl;
 
-import az.edu.ada.wm2.workingwithrelationaldatademojpa.model.Team;
-import az.edu.ada.wm2.workingwithrelationaldatademojpa.repository.TeamRepository;
+import az.edu.ada.wm2.repository.TeamRepository;
+import az.edu.ada.wm2.model.Team;
+import az.edu.ada.wm2.service.TeamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,6 +1,6 @@
-package az.edu.ada.wm2.workingwithrelationaldatademojpa.repository;
+package az.edu.ada.wm2.repository;
 
-import az.edu.ada.wm2.workingwithrelationaldatademojpa.model.Team;
+import az.edu.ada.wm2.model.Team;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

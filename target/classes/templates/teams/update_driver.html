@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add New Team</title>
+    <title>Update Team</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header>
-    <h2>Add New Team</h2>
+    <h2>Update Team</h2>
 </header>
-<form action="/teams" method="post">
+<form action="/teams/update" method="post">
+    <input type="hidden" id="id" name="id">
     <label for="name">Team Name:</label>
     <input type="text" id="name" name="name" required><br>
     <label for="country">Country:</label>
     <input type="text" id="country" name="country" required><br>
     <label for="wins">Wins:</label>
     <input type="number" id="wins" name="wins" required><br>
-    <input type="submit" value="Add Team">
+    <input type="submit" value="Update Team">
 </form>
 </body>
 </html>
