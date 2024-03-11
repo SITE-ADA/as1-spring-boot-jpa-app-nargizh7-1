@@ -53,19 +53,13 @@
             <version>${spring.boot.version}</version>
         </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <excludes>
-                        <exclude>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </exclude>
-                    </excludes>
+                    <mainClass>az.edu.ada.wm2.workingwithrelationaldatademojpa</mainClass>
                 </configuration>
             </plugin>
         </plugins>
