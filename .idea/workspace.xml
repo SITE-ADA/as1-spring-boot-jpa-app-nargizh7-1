@@ -5,8 +5,62 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d8a4f67d-302e-4144-83b9-1f14892af565" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/as1-spring-boot-jpa-app-nargizh7-1.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main - Shortcut.lnk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/az/edu/ada/wm2/config/WebMVCConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/az/edu/ada/wm2/controller/DriverController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/az/edu/ada/wm2/controller/TeamController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/az/edu/ada/wm2/model/Driver.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/az/edu/ada/wm2/model/Team.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/az/edu/ada/wm2/repository/DriverRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/az/edu/ada/wm2/repository/TeamRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/az/edu/ada/wm2/service/DriverService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/az/edu/ada/wm2/service/TeamService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/az/edu/ada/wm2/service/impl/DriverServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/az/edu/ada/wm2/service/impl/TeamServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/az/edu/ada/wm2/workingwithrelationaldatademojpa/WorkingWithRelationalDataDemoJpaApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/data.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sql queries/queries" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/drivers/add_team.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/drivers/index_drivers.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/drivers/new.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/drivers/update_team.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/teams/add_driver.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/teams/index_teams.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/teams/new.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/teams/update_driver.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/data.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sql queries/queries" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/drivers/add_team.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/drivers/index_drivers.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/drivers/new.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/drivers/update_team.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/teams/add_driver.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/teams/index_teams.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/teams/new.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/teams/update_driver.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/working-with-relational-data-demo-jpa-0.0.1-SNAPSHOT.jar.original" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
