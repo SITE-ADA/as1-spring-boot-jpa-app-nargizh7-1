@@ -2,6 +2,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.2.3'
 	id 'io.spring.dependency-management' version '1.1.4'
+	id 'application'
 }
 
 group = 'wm2'
@@ -24,7 +25,6 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
-// Spring Boot's main class name
-springBoot {
-	mainClassName = 'wm2.as1.As1Application'
+application {
+	mainClass = 'wm2.as1.As1Application'
 }
