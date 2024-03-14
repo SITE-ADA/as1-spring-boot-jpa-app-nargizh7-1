@@ -18,11 +18,13 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
-	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '3.2.3'
-
 }
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+// Spring Boot's main class name
+springBoot {
+	mainClassName = 'wm2.as1.As1Application'
 }
