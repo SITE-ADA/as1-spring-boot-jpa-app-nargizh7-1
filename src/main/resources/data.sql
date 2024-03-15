@@ -5,11 +5,11 @@
 --INSERT INTO STUDENTS(first_name, last_name) VALUES('Huseyn', 'Jabbarov')
 --INSERT INTO STUDENTS(first_name, last_name) VALUES('Kanan', 'Gafarov')
 
-INSERT INTO MOVIES(name, description, credits) VALUES('WM1', 'Web and Mobile 1', 6)
-INSERT INTO MOVIES(name, description, credits) VALUES('WM2', 'Web and Mobile 2', 6)
-INSERT INTO MOVIES(name, description, credits) VALUES('PP1', 'Programming Principles 1', 6)
-INSERT INTO MOVIES(name, description, credits) VALUES('PP2', 'Programming Principles 2', 6)
-INSERT INTO MOVIES(name, description, credits) VALUES('DB1', 'Database Fundamentals', 6)
+INSERT INTO MOVIES(name, description, credits) VALUES('Inception', 'Sci-fi thriller', 6)
+INSERT INTO MOVIES(name, description, credits) VALUES('The Matrix', 'Cyberpunk action', 6)
+INSERT INTO MOVIES(name, description, credits) VALUES('Interstellar', 'Space exploration', 6)
+INSERT INTO MOVIES(name, description, credits) VALUES('The Dark Knight', 'Superhero drama', 6)
+INSERT INTO MOVIES(name, description, credits) VALUES('Avatar', 'Epic sci-fi', 6)
 
 --INSERT INTO student_course VALUES(2, 2)
 --INSERT INTO student_course VALUES(2, 5)
