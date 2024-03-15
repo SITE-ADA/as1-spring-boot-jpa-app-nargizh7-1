@@ -1,5 +1,6 @@
 package wm2.hw1.hw1.controller;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import wm2.hw1.hw1.model.Movie;
 import wm2.hw1.hw1.service.MovieService;
 import org.slf4j.Logger;
@@ -16,6 +17,7 @@ import java.util.List;
 public class MovieController {
     static final Logger LOGGER = LoggerFactory.getLogger(MovieController.class);
 
+    @Qualifier
     private MovieService movieService;
 
     public MovieController(MovieService movieService) {

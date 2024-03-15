@@ -3,6 +3,8 @@ package wm2.hw1.hw1.model;
 import lombok.*;
 import jakarta.persistence.*;
 
+import java.util.Set;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -20,6 +22,9 @@ public class Movie {
     private String description;
 
     private Integer credits;
+
+    @ManyToMany
+    private Set<Director> directors;
 
     public Movie(String name, String description, Integer credits) {
         this.name = name;
