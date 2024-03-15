@@ -1,0 +1,35 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Directors</title>
+</head>
+<body>
+
+<table>
+    <thead>
+    <tr>
+        <th> Firstname</th>
+        <th> Lastname</th>
+        <th> Movies</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td th:text="${director.firstName}"> First Name</td>
+        <td th:text="${director.lastName}"> Last Name</td>
+        <td>
+            <select>
+                <option th:each="movie : ${director.movies}"
+                        th:text="${movie.name}"
+                        th:value="${movie.id}"></option>
+            </select>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a th:href="@{/director/list}"> Back to list </a>
+</body>
+</html>

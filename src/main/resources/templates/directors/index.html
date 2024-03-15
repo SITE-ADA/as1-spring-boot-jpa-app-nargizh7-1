@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Directors</title>
+</head>
+<body>
+
+<h2>Directors list</h2>
+<a th:href="@{/director/new}">Add New Director</a>
+
+<table border="1px">
+    <tr>
+        <th>ID</th>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>Movies</th>
+        <th>Actions</th>
+    </tr>
+
+    <p th:if="${directors} != null" th:text="|Number of directors: ${#lists.size(directors)}|"></p>
+
+    <tr th:if="${#lists.isEmpty(directors)}">
+        <td colspan="4">The director list is empty</td>
+    </tr>
+    <tr th:each="director : ${directors}">
+        <td th:text="${director.id}">ID</td>
+        <td th:text="${director.firstName}">FirstName</td>
+        <td th:text="${director.lastName}">LastName</td>
+        <td>
+            <select>
+                <option th:each="movie : ${director.movies}"
+                        th:text="${movie.name}"
+                        th:value="${movie.id}">
+                </option>
+            </select>
+        </td>
+        <td>
+            <th:block th:with="id=${movie.id}">
+                <a th:href="@{'/director/update/' + ${id}}">Update</a>
+                <a th:href="@{'/director/delete/' + ${id}}">Delete</a>
+                <a th:href="@{'/director/' + ${id} + '/addMovie/'}">Add movie</a>
+            </th:block>
+        </td>
+    </tr>
+</table>
+<a th:href="@{/}"> Back to HOME </a>
+</body>
+</html>

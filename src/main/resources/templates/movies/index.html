@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Movies</title>
+</head>
+<body>
+
+<h2>Movies list</h2>
+<a th:href="@{/course/new}">Add New Movie</a>
+
+<table border="1px">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Credits</th>
+        <th>Actions</th>
+    </tr>
+
+    <p th:if="${movies} != null" th:text="|Number of available movies: ${#lists.size(movies)}|"></p>
+
+    <tr th:if="${#lists.isEmpty(movies)}">
+        <td colspan="4">The movie list is empty</td>
+    </tr>
+    <tr th:each="movie : ${movies}">
+        <td th:text="${movie.id}">ID</td>
+        <td th:text="${movie.name}">Name</td>
+        <td th:text="${movie.description}">Description</td>
+        <td th:text="${movie.credits}">#credits</td>
+        <td>
+            <th:block th:with="id=${movie.id}">
+                <a th:href="@{'/movie/update/' + ${id}}">Update</a>
+                <a th:href="@{'/movie/delete/' + ${id}}">Delete</a>
+            </th:block>
+        </td>
+    </tr>
+</table>
+<a th:href="@{/}"> Back to HOME </a>
+</body>
+</html>
