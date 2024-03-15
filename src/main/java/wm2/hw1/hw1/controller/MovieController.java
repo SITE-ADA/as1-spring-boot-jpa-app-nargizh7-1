@@ -16,7 +16,7 @@ import java.util.List;
 public class MovieController {
     static final Logger LOGGER = LoggerFactory.getLogger(MovieController.class);
 
-    MovieService movieService;
+    private MovieService movieService;
 
     public MovieController(MovieService movieService) {
 

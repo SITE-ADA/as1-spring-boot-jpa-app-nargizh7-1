@@ -1,6 +1,7 @@
 package wm2.hw1.hw1.service.impl;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import wm2.hw1.hw1.model.Movie;
 import wm2.hw1.hw1.repository.MovieRepository;
@@ -10,6 +11,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @Service
+//@Profile("default")
 public class MovieServiceImpl implements MovieService {
 
     private final MovieRepository movieRepo;

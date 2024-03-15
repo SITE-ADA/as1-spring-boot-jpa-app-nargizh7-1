@@ -1,18 +1,22 @@
--- Inserting directors
-INSERT INTO DIRECTORS(first_name, last_name) VALUES('John', 'Smith');
-INSERT INTO DIRECTORS(first_name, last_name) VALUES('Jane', 'Doe');
-INSERT INTO DIRECTORS(first_name, last_name) VALUES('Alice', 'Johnson');
-INSERT INTO DIRECTORS(first_name, last_name) VALUES('Bob', 'Brown');
-INSERT INTO DIRECTORS(first_name, last_name) VALUES('Carol', 'Davis');
-INSERT INTO DIRECTORS(first_name, last_name) VALUES('David', 'Wilson');
+--INSERT INTO STUDENTS(first_name, last_name) VALUES('Sabrina-Maria', 'Sakka')
+--INSERT INTO STUDENTS(first_name, last_name) VALUES('Ilaha', 'Behbudova')
+--INSERT INTO STUDENTS(first_name, last_name) VALUES('Nuraddin', 'Sadili')
+--INSERT INTO STUDENTS(first_name, last_name) VALUES('Emil', 'Huseynov')
+--INSERT INTO STUDENTS(first_name, last_name) VALUES('Huseyn', 'Jabbarov')
+--INSERT INTO STUDENTS(first_name, last_name) VALUES('Kanan', 'Gafarov')
 
--- Inserting movies
-INSERT INTO MOVIES(title, description, director_id) VALUES('Epic Adventure', 'An epic adventure of discovery', 1);
-INSERT INTO MOVIES(title, description, director_id) VALUES('Space Odyssey', 'A journey through space', 2);
-INSERT INTO MOVIES(title, description, director_id) VALUES('Romantic Escape', 'A tale of love and escapism', 3);
-INSERT INTO MOVIES(title, description, director_id) VALUES('Comedy Nights', 'A comedic journey through life', 4);
-INSERT INTO MOVIES(title, description, director_id) VALUES('Horror Thriller', 'A spine-chilling horror movie', 5);
+INSERT INTO MOVIES(name, description, credits) VALUES('WM1', 'Web and Mobile 1', 6)
+INSERT INTO MOVIES(name, description, credits) VALUES('WM2', 'Web and Mobile 2', 6)
+INSERT INTO MOVIES(name, description, credits) VALUES('PP1', 'Programming Principles 1', 6)
+INSERT INTO MOVIES(name, description, credits) VALUES('PP2', 'Programming Principles 2', 6)
+INSERT INTO MOVIES(name, description, credits) VALUES('DB1', 'Database Fundamentals', 6)
 
--- Assuming a relationship table between movies and directors is needed, similar to student_course
---INSERT INTO movie_director VALUES(movie_id, director_id);
--- The values for movie_id and director_id would need to be updated to match the actual IDs in your database.
+--INSERT INTO student_course VALUES(2, 2)
+--INSERT INTO student_course VALUES(2, 5)
+--INSERT INTO student_course VALUES(1, 1)
+--INSERT INTO student_course VALUES(1, 3)
+--INSERT INTO student_course VALUES(1, 4)
+--INSERT INTO student_course VALUES(4, 2)
+--INSERT INTO student_course VALUES(4, 3)
+--INSERT INTO student_course VALUES(4, 5)
+
