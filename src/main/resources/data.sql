@@ -5,6 +5,9 @@
 --INSERT INTO STUDENTS(first_name, last_name) VALUES('Huseyn', 'Jabbarov')
 --INSERT INTO STUDENTS(first_name, last_name) VALUES('Kanan', 'Gafarov')
 
+-- to avoid duplicate of values (data folder)
+--DELETE from MOVIES;
+
 INSERT INTO MOVIES(name, description, credits) VALUES('Inception', 'Sci-fi thriller', 6)
 INSERT INTO MOVIES(name, description, credits) VALUES('The Matrix', 'Cyberpunk action', 6)
 INSERT INTO MOVIES(name, description, credits) VALUES('Interstellar', 'Space exploration', 6)
