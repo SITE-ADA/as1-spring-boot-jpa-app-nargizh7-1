@@ -8,11 +8,110 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Directors</title>
-</head>
-<body>
+    <style>
+        body {
+          font-family: Arial, Helvetica, sans-serif;
+          background-image: url('https://static.voice123.com/blog/wp-content/uploads/2023/07/shutterstock_1793697871_720.jpg');
+          background-size: cover;
+          background-attachment: fixed;
+          margin: 0;
+          padding: 0;
+        }
 
-<h2>Directors list</h2>
-<a th:href="@{/director/new}">Add New Director</a>
+        h2, h3 {
+          text-align: center;
+          color: white;
+          text-shadow: 0px 4px 4px #282828;
+        }
+
+         h2 {
+          font-size: 3em;
+        }
+
+         h3 {
+          font-size: 1.2em;
+        }
+
+        p {
+          text-shadow: 0px 4px 4px #282828;
+          font-size: 1.3em;
+          color: white;
+          font-weight: bold;
+        }
+
+        table {
+          margin: -80px auto 0;
+          border-collapse: collapse;
+          background-color: #fff;
+          border: 1px solid #333;
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        th, td {
+          padding: 12px 15px;
+          text-align: center;
+          border: 1px solid #ddd;
+        }
+
+        th {
+          color: white;
+          background-color: #333;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          font-weight: bold;
+        }
+
+        td {
+          background-color: #f5f5f5;
+        }
+
+        a {
+          border: 2px solid #f44336;
+          transition: all 0.3s ease-in-out;
+          display: inline-block;
+          padding: 8px 16px;
+          margin-top: 20px;
+          background-color: #f44336;
+          color: #fff;
+          text-decoration: none;
+          border-radius: 4px;
+        }
+
+        a:hover {
+          background-color: #fff;
+          color: #f44336;
+          border: 2px solid #f44336;
+        }
+
+        .page-info {
+            margin-top: -200px;
+            text-align: left;
+            color: white;
+            font-weight: bold;
+        }
+
+        @media screen and (max-width: 600px) {
+          table {
+            width: 100%;
+          }
+
+          td, th {
+            display: block;
+            text-align: right;
+          }
+
+          td::before {
+            content: attr(data-label);
+            float: left;
+            font-weight: bold;
+          }
+        }
+    </style>
+</head>
+
+<body>
+<h2>Film Directors List</h2>
+<a th:href="@{/director/new}">ADD A NEW DIRECTOR</a>
 
 <table border="1px">
     <tr>
@@ -23,11 +122,12 @@
         <th>Actions</th>
     </tr>
 
-    <p th:if="${directors} != null" th:text="|Number of directors: ${#lists.size(directors)}|"></p>
+    <p th:if="${directors} != null" th:text="|Number of available directors: ${#lists.size(directors)}|"></p>
 
     <tr th:if="${#lists.isEmpty(directors)}">
-        <td colspan="4">The director list is empty</td>
+        <td colspan="4">The directors list is empty</td>
     </tr>
+
     <tr th:each="director : ${directors}">
         <td th:text="${director.id}">ID</td>
         <td th:text="${director.firstName}">FirstName</td>
@@ -41,14 +141,17 @@
             </select>
         </td>
         <td>
-            <th:block th:with="id=${movie.id}">
+            <th:block th:with="id=${director.id}">
                 <a th:href="@{'/director/update/' + ${id}}">Update</a>
                 <a th:href="@{'/director/delete/' + ${id}}">Delete</a>
-                <a th:href="@{'/director/' + ${id} + '/addMovie/'}">Add movie</a>
             </th:block>
         </td>
     </tr>
 </table>
-<a th:href="@{/}"> Back to HOME </a>
+
+<div class="page-info">
+    <a th:href="@{/}">BACK TO HOME</a>
+</div>
+
 </body>
 </html>

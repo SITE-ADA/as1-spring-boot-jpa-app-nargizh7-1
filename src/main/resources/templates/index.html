@@ -8,44 +8,113 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Home page</title>
+    <style>
+        body {
+          font-family: Arial, Helvetica, sans-serif;
+          background-image: url('https://wallpapercave.com/wp/ZDpGHyX.jpg');
+          background-size: cover;
+          background-attachment: fixed;
+          margin: 0;
+          padding: 0;
+        }
+
+        h2, h3, h4 {
+          text-align: center;
+          color: white;
+        }
+
+         h2 {
+          font-size: 4em;
+          text-shadow: 0px 4px 4px #282828;
+        }
+
+         h3 {
+          font-size: 2em;
+          text-shadow: 0px 4px 4px #282828;
+        }
+
+         h4 {
+          font-size: 1.7em;
+          text-shadow: 0px 4px 4px #282828;
+        }
+
+        th, td {
+          padding: 12px 15px;
+          text-align: center;
+          border: 1px solid #ddd;
+        }
+
+        th {
+          color: white;
+          background-color: #333;
+          color: #fff;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          font-weight: bold;
+        }
+
+        td {
+          background-color: #f5f5f5;
+        }
+
+        a {
+          border: 2px solid #f44336;
+          transition: all 0.3s ease-in-out;
+          display: inline-block;
+          padding: 8px 16px;
+          margin-top: 20px;
+          background-color: #f44336;
+          color: #fff;
+          text-decoration: none;
+          border-radius: 4px;
+        }
+
+        a:hover {
+          background-color: #fff;
+          color: #f44336;
+          border: 2px solid #f44336;
+        }
+
+        .page-info {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        @media screen and (max-width: 600px) {
+          table {
+            width: 100%;
+          }
+
+          td, th {
+            display: block;
+            text-align: right;
+          }
+
+          td::before {
+            content: attr(data-label);
+            float: left;
+            font-weight: bold;
+          }
+        }
+    </style>
 </head>
-<style>
-    body {
-        font-family: 'Arial', sans-serif;
-        background: linear-gradient(to right, #012439, #013A63, #01497C);
-        color: #FFFFFF;
-        padding: 40px;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-    }
 
-    a {
-        display: inline-block;
-        background: linear-gradient(45deg, #009688, #4DB6AC);
-        color: #FFFFFF;
-        padding: 15px 30px;
-        margin: 10px 0;
-        border-radius: 5px;
-        font-size: 20px;
-        text-decoration: none;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    }
-
-    a:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
-    }
-</style>
 <body>
+<h2>Movie Productions </h2>
 
-<a th:href="@{/movie/}">Movies Page</a>
-<br />
-<a th:href="@{/director/}">Directors Page</a>
+<div class="page-info">
+    <br />    <br />
+    <a th:href="@{/director/}">Directors Page</a>
+    <br />
+    <a th:href="@{/movie/}">Movies Page</a>
+
+</div>
 
 </body>
 </html>

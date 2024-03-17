@@ -1,11 +1,10 @@
 package wm2.hw1.hw1.service;
 
-import org.springframework.stereotype.Service;
 import wm2.hw1.hw1.model.Movie;
+
 import java.util.List;
 import java.util.Optional;
 
-@Service
 public interface MovieService {
 
     List<Movie> list();
@@ -15,5 +14,7 @@ public interface MovieService {
     Movie getById(Long id);
 
     void deleteById(Long id);
+
+    List<Movie> getAllWebMovies(String keyword);
 
 }

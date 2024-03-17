@@ -1,0 +1,24 @@
+-- To add a director to a movie
+INSERT INTO director_movies (director_id, movie_id)
+VALUES (<director_id>, <movie_id>);
+
+-- To remove a director from a movie
+DELETE FROM director_movies
+WHERE director_id = <director_id> AND movie_id = <movie_id>;
+
+-- Get the names of all directors who are not currently associated with a movie
+SELECT name FROM directors
+WHERE id NOT IN (SELECT director_id FROM director_movies);
+
+-- Get the names of all movies and the number of directors associated with each movie:
+SELECT movies.name, COUNT(director_movies.director_id) AS num_directors
+FROM movies
+LEFT JOIN director_movies ON movies.id = director_movies.movie_id
+GROUP BY movies.id;
+
+-- Get the names of all directors who are associated with a movie and the name of their movie, sorted by movie name:
+SELECT directors.name, movies.name AS movie_name
+FROM directors
+JOIN director_movies ON directors.id = director_movies.director_id
+JOIN movies ON director_movies.movie_id = movies.id
+ORDER BY movies.name;

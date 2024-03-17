@@ -1,22 +1,36 @@
 package wm2.hw1.hw1.model;
 
+import lombok.*;
+
 import jakarta.persistence.*;
 
-import java.util.Collection;
+import java.util.HashSet;
 import java.util.Set;
 
-import static jakarta.persistence.GenerationType.IDENTITY;
-
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 @Entity
+@Table(name = "DIRECTORS")
 public class Director {
 
     @Id
-    @GeneratedValue(strategy = IDENTITY)
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    private String name;
+    private String firstName;
+    private String lastName;
 
     @ManyToMany
-    private Set<Movie> movie;
-}
+    @JoinTable(name = "director_movie",
+            joinColumns = {@JoinColumn(name = "director_id")},
+            inverseJoinColumns = {@JoinColumn(name = "movie_id")}
+    )
+    private Set<Movie> movies = new HashSet<>();
 
+    @Override
+    public String toString() {
+        return "Director: " + firstName + ", " + lastName;
+    }
+}

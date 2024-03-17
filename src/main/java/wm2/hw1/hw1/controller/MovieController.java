@@ -1,7 +1,8 @@
 package wm2.hw1.hw1.controller;
 
-import org.springframework.beans.factory.annotation.Qualifier;
+import wm2.hw1.hw1.model.Director;
 import wm2.hw1.hw1.model.Movie;
+import wm2.hw1.hw1.service.DirectorService;
 import wm2.hw1.hw1.service.MovieService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,11 +18,9 @@ import java.util.List;
 public class MovieController {
     static final Logger LOGGER = LoggerFactory.getLogger(MovieController.class);
 
-    @Qualifier
-    private MovieService movieService;
+    MovieService movieService;
 
     public MovieController(MovieService movieService) {
-
         this.movieService = movieService;
     }
 
@@ -47,12 +46,6 @@ public class MovieController {
         return "redirect:/movie/";
     }
 
-    @GetMapping("/{id}")
-    public String getById(Model model, @PathVariable Long id) {
-        model.addAttribute("movie", movieService.getById(id));
-        return "movies/info";
-    }
-
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Long id) {
         movieService.deleteById(id);
@@ -66,5 +59,12 @@ public class MovieController {
 
         mv.addObject("movie", movieService.getById(id));
         return mv;
+    }
+
+    @GetMapping("/filter/{keyword}")
+    public String getWebMovies(Model model, @PathVariable String keyword) {
+        model.addAttribute("movies", movieService.getAllWebMovies(keyword));
+
+        return "movies/index";
     }
 }
