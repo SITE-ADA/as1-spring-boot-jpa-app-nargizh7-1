@@ -9,14 +9,14 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.data.domain.Sort;
+import wm2.hw1.hw1.specifications.DirectorSpecifications;
 
 import java.util.List;
 
 @Service
 public class DirectorServiceImpl implements DirectorService {
-
     DirectorRepository directorRepo;
-
     MovieRepository movieRepo;
 
     public DirectorServiceImpl(DirectorRepository directorRepo, MovieRepository movieRepo) {
@@ -25,11 +25,15 @@ public class DirectorServiceImpl implements DirectorService {
     }
 
     @Override
-    public Page<Director> list(int pageNo) {
-        Pageable pageable = PageRequest.of(pageNo - 1, 5);
-        return (Page<Director>) directorRepo.findAll(pageable);
+    public Page<Director> list(int pageNo, String sortField, String sortDir, String filterField, String filterValue) {
+        Pageable pageable = PageRequest.of(pageNo - 1, 5, Sort.by(Sort.Direction.fromString(sortDir), sortField));
+        if (!filterField.isEmpty() && !filterValue.isEmpty()) {
+            return directorRepo.findAll(DirectorSpecifications.filterBy(filterField, filterValue), pageable);
+        }
+        return directorRepo.findAll(pageable);
     }
 
+    //Continuation of DirectorServiceImpl
     @Override
     public Director save(Director director) {
         return directorRepo.save(director);
@@ -45,11 +49,12 @@ public class DirectorServiceImpl implements DirectorService {
         directorRepo.deleteById(id);
     }
 
+    @Override
     public List<Director> getDirectorByNamesAnd(String firstName, String lastName) {
         return (List<Director>) directorRepo.findByFirstNameAndLastName(firstName, lastName);
-
     }
 
+    @Override
     public List<Director> getDirectorByNamesOr(String firstName, String lastName) {
         return (List<Director>) directorRepo.findByFirstNameOrLastName(firstName, lastName);
     }
@@ -63,6 +68,4 @@ public class DirectorServiceImpl implements DirectorService {
     public List<Movie> getMoviesByDirectorIdNot(Long id) {
         return (List<Movie>) movieRepo.findByDirectorsIdNot(id);
     }
-
-
 }

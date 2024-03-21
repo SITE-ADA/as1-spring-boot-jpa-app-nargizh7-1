@@ -99,6 +99,32 @@
 <h2>Film Directors List</h2>
 <a th:href="@{/director/new}">ADD A NEW DIRECTOR</a>
 
+<!-- Sorting and Filtering Form -->
+<form action="#" th:action="@{/director/list}" method="get">
+    <div>
+        <label for="sortField">Sort by:</label>
+        <select name="sortField" id="sortField">
+            <option value="firstName">First Name</option>
+            <option value="lastName">Last Name</option>
+        </select>
+        <select name="sortDir" id="sortDir">
+            <option value="asc">Ascending</option>
+            <option value="desc">Descending</option>
+        </select>
+    </div>
+    <div>
+        <label for="filterField">Filter by:</label>
+        <select name="filterField" id="filterField">
+            <option value="">None</option>
+            <option value="firstName">First Name</option>
+            <option value="lastName">Last Name</option>
+        </select>
+        <input type="text" name="filterValue" id="filterValue">
+    </div>
+    <button type="submit">Apply</button>
+</form>
+
+<!-- Directors Table -->
 <table border="1px">
     <tr>
         <th>ID</th>
@@ -107,13 +133,9 @@
         <th>Movies</th>
         <th>Actions</th>
     </tr>
-
-    <p th:if="${directors} != null" th:text="|Number of available directors: ${#lists.size(directors)}|"></p>
-
     <tr th:if="${#lists.isEmpty(directors)}">
-        <td colspan="4">The directors list is empty</td>
+        <td colspan="5">The directors list is empty</td>
     </tr>
-
     <tr th:each="director : ${directors}">
         <td th:text="${director.id}">ID</td>
         <td th:text="${director.firstName}">FirstName</td>
@@ -135,9 +157,18 @@
     </tr>
 </table>
 
+<!-- Pagination Links -->
+<div>
+    <a th:if="${currentPage != 1}" th:href="@{'/director/list?pageNo=' + (${currentPage} - 1)}">&laquo; Previous</a>
+    <span th:each="pageNum : ${#numbers.sequence(1, totalPages)}">
+        <a th:if="${pageNum != currentPage}" th:href="@{'/director/list?pageNo=' + ${pageNum}}" th:text="${pageNum}"></a>
+        <span th:if="${pageNum == currentPage}" th:text="${pageNum}"></span>
+    </span>
+    <a th:if="${currentPage != totalPages}" th:href="@{'/director/list?pageNo=' + (${currentPage} + 1)}">Next &raquo;</a>
+</div>
+
 <div class="page-info">
     <a th:href="@{/}">BACK TO HOME</a>
 </div>
-
 </body>
 </html>

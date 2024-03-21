@@ -5,12 +5,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface DirectorRepository extends JpaRepository<Director, Long> {
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
-    Page<Director> findAll(Pageable pageable);
-
+public interface DirectorRepository extends JpaRepository<Director, Long>, JpaSpecificationExecutor<Director> {
     Iterable<Director> findByFirstNameAndLastName(String firstName, String lastName);
-
     Iterable<Director> findByFirstNameOrLastName(String firstName, String lastName);
-
 }

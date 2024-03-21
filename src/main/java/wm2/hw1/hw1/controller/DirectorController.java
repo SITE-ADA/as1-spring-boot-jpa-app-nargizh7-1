@@ -28,19 +28,23 @@ public class DirectorController {
     }
 
     @GetMapping({"", "/", "/list"})
-    public String getDirectors(Model model) {
-        return getDirectorsByPageNo(model, 1);
-    }
-
-    @GetMapping("/page/{no}")
-    public String getDirectorsByPageNo(Model model, @PathVariable("no") Integer pageNo) {
-        Page<Director> directorsPage = directorService.list(pageNo);
-        model.addAttribute("directors", directorsPage);
+    public String getDirectors(Model model,
+                               @RequestParam(name = "pageNo", defaultValue = "1") Integer pageNo,
+                               @RequestParam(name = "sortField", defaultValue = "firstName") String sortField,
+                               @RequestParam(name = "sortDir", defaultValue = "asc") String sortDir,
+                               @RequestParam(name = "filterField", defaultValue = "") String filterField,
+                               @RequestParam(name = "filterValue", defaultValue = "") String filterValue) {
+        Page<Director> directorsPage = directorService.list(pageNo, sortField, sortDir, filterField, filterValue);
         model.addAttribute("directors", directorsPage.getContent());
         model.addAttribute("currentPage", pageNo);
         model.addAttribute("totalPages", directorsPage.getTotalPages());
         model.addAttribute("nbElements", directorsPage.getNumberOfElements());
         model.addAttribute("totalElements", directorsPage.getTotalElements());
+        model.addAttribute("sortField", sortField);
+        model.addAttribute("sortDir", sortDir);
+        model.addAttribute("filterField", filterField);
+        model.addAttribute("filterValue", filterValue);
+
         return "directors/index";
     }
 
@@ -66,26 +70,20 @@ public class DirectorController {
     public ModelAndView updateDirector(@PathVariable Long id) {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("directors/update");
-
         mv.addObject("director", directorService.getById(id));
         return mv;
     }
 
-
     @GetMapping("/and/{firstName}/{lastName}")
     public String getDirectorByNameAnd(Model model, @PathVariable String firstName, @PathVariable String lastName) {
-
         var director = directorService.getDirectorByNamesAnd(firstName, lastName);
-
         model.addAttribute("directors", director);
-
         return "directors/index";
     }
 
     @GetMapping("/or/{firstName}/{lastName}")
     public String getDirectorByNameOr(Model model, @PathVariable String firstName, @PathVariable String lastName) {
         model.addAttribute("directors", directorService.getDirectorByNamesOr(firstName, lastName));
-
         return "directors/index";
     }
 
@@ -97,10 +95,8 @@ public class DirectorController {
 
     @GetMapping("/{id}/addMovie")
     public String addMoviePage(Model model, @PathVariable Long id) {
-
         Director stud = directorService.getById(id);
         model.addAttribute("director", stud);
-
         List<Movie> allMovies = directorService.getMoviesByDirectorIdNot(id);
         model.addAttribute("movies", allMovies);
         return "directors/add_movie";
