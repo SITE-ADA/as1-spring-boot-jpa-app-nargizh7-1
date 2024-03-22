@@ -5,6 +5,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import wm2.hw1.hw1.model.Movie;
+import wm2.hw1.hw1.repository.DirectorRepository;
 import wm2.hw1.hw1.repository.MovieRepository;
 import wm2.hw1.hw1.service.MovieService;
 import org.springframework.stereotype.Service;
@@ -15,11 +16,12 @@ import java.util.ArrayList;
 
 @Service
 public class MovieServiceImpl implements MovieService {
+    DirectorRepository directorRepo;
+    MovieRepository movieRepo;
 
-    private final MovieRepository movieRepo;
-
-    public MovieServiceImpl(MovieRepository movieRepository) {
-        this.movieRepo = movieRepository;
+    public MovieServiceImpl(DirectorRepository directorRepo, MovieRepository movieRepo) {
+        this.directorRepo = directorRepo;
+        this.movieRepo = movieRepo;
     }
     @Override
     public List<Movie> getAllMovies() {
@@ -46,8 +48,15 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     public void deleteById(Long id) {
+        Movie movie = movieRepo.findById(id).orElseThrow(() -> new RuntimeException("Movie not found"));
+        // Remove the movie from all directors
+        movie.getDirectors().forEach(director -> director.getMovies().remove(movie));
+        // Save the directors to update the changes in the database
+        movie.getDirectors().forEach(directorRepo::save);
+        // Delete the movie
         movieRepo.deleteById(id);
     }
+
 
     public List<Movie> getAllWebMovies(String keyword) {
         return (List<Movie>) movieRepo.getAllWebMoviesUsingJPAQuery(keyword);

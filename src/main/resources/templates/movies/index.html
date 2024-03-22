@@ -193,15 +193,13 @@
     </tr>
 
     <tr th:each="movie : ${movies}">
-        <td th:text="${movie.id}">ID</td>
-        <td th:text="${movie.name}">Name</td>
-        <td th:text="${movie.country}">Country</td>
-        <td th:text="${movie.wins}">#wins</td>
+        <td th:text="${movie.id}"></td>
+        <td th:text="${movie.name}"></td>
+        <td th:text="${movie.country}"></td>
+        <td th:text="${movie.wins}"></td>
         <td>
-            <th:block th:with="id=${movie.id}">
-                <a th:href="@{'/movie/update/' + ${id}}">Update</a>
-                <a th:href="@{'/movie/delete/' + ${id}}">Delete</a>
-            </th:block>
+            <a th:href="@{'/movie/update/' + ${movie.id}}">Update</a>
+            <a th:href="@{'/movie/delete/' + ${movie.id}}">Delete</a>
         </td>
     </tr>
 </table>
