@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.data.domain.Page;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/movie")
@@ -53,12 +54,6 @@ public class MovieController {
         return "movies/new";
     }
 
-    @PostMapping("/")
-    public String save(@ModelAttribute("movie") Movie movie) {
-        movieService.save(movie);
-        return "redirect:/movie/";
-    }
-
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Long id) {
         movieService.deleteById(id);
@@ -80,4 +75,15 @@ public class MovieController {
 
         return "movies/index";
     }
+
+    @PostMapping("/")
+    public String save(@ModelAttribute("movie") Movie movie, @RequestParam(required = false) List<Long> directors) {
+        if (directors != null) {
+            movie.setDirectors(directors.stream().map(id -> new Director(id)).collect(Collectors.toSet()));
+        }
+        movieService.save(movie);
+        return "redirect:/movie/";
+    }
+
+
 }

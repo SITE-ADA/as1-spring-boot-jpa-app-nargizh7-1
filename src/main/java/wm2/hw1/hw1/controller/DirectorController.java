@@ -15,16 +15,19 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/director")
 public class DirectorController {
     static final Logger LOGGER = LoggerFactory.getLogger(DirectorController.class);
 
-    DirectorService directorService;
+    private final DirectorService directorService;
+    private final MovieService movieService; // Add this line
 
-    public DirectorController(DirectorService directorService) {
+    public DirectorController(DirectorService directorService, MovieService movieService) { // Modify the constructor
         this.directorService = directorService;
+        this.movieService = movieService; // Add this line
     }
 
     @GetMapping({"", "/", "/list"})
@@ -48,17 +51,36 @@ public class DirectorController {
         return "directors/index";
     }
 
+    // Add a movie to a director
+    @PostMapping("/{directorId}/addMovie/{movieId}")
+    public String addMovieToDirector(@PathVariable Long directorId, @PathVariable Long movieId) {
+        directorService.addMovieToDirector(directorId, movieId);
+        return "redirect:/director/" + directorId + "/movies";
+    }
+
+    // Remove a movie from a director
+    @PostMapping("/{directorId}/removeMovie/{movieId}")
+    public String removeMovieFromDirector(@PathVariable Long directorId, @PathVariable Long movieId) {
+        directorService.removeMovieFromDirector(directorId, movieId);
+        return "redirect:/director/" + directorId + "/movies";
+    }
+
     @GetMapping("/new")
     public String createNewDirector(Model model) {
         model.addAttribute("director", new Director());
+        model.addAttribute("allMovies", movieService.getAllMovies()); // Assuming you have a method to get all movies
         return "directors/new";
     }
 
     @PostMapping("/")
-    public String save(@ModelAttribute("director") Director director) {
+    public String save(@ModelAttribute("director") Director director, @RequestParam(required = false) List<Long> movies) {
+        if (movies != null) {
+            director.setMovies(movies.stream().map(id -> new Movie(id)).collect(Collectors.toSet()));
+        }
         directorService.save(director);
         return "redirect:/director/";
     }
+
 
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Long id) {
@@ -101,4 +123,6 @@ public class DirectorController {
         model.addAttribute("movies", allMovies);
         return "directors/add_movie";
     }
+
+
 }

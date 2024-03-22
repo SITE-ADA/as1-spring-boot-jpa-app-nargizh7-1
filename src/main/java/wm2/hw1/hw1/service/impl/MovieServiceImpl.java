@@ -16,12 +16,15 @@ import java.util.ArrayList;
 @Service
 public class MovieServiceImpl implements MovieService {
 
-    MovieRepository movieRepo;
+    private final MovieRepository movieRepo;
 
-    public MovieServiceImpl(MovieRepository movieRepo) {
-        this.movieRepo = movieRepo;
+    public MovieServiceImpl(MovieRepository movieRepository) {
+        this.movieRepo = movieRepository;
     }
-
+    @Override
+    public List<Movie> getAllMovies() {
+        return movieRepo.findAll();
+    }
     @Override
     public Page<Movie> list(int pageNo, String sortField, String sortDir, String filterField, String filterValue) {
         Pageable pageable = PageRequest.of(pageNo - 1, 5, Sort.by(Sort.Direction.fromString(sortDir), sortField));

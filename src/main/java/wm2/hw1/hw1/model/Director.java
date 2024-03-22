@@ -33,4 +33,9 @@ public class Director {
     public String toString() {
         return "Director: " + firstName + ", " + lastName;
     }
+
+    public Director(Long id) {
+        this.id = id;
+    }
+
 }

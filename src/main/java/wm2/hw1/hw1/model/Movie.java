@@ -42,4 +42,9 @@ public class Movie {
     public String toString() {
         return "Movie: " + this.name + ": " + this.country;
     }
+
+    public Movie(Long id) {
+        this.id = id;
+    }
+
 }

@@ -8,6 +8,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.util.List;
+
 public interface MovieRepository extends JpaRepository<Movie, Long> {
 
     Iterable<Movie> findByDirectorsId(Long id);
@@ -23,4 +25,8 @@ public interface MovieRepository extends JpaRepository<Movie, Long> {
     Iterable<Movie> getAllWebMoviesUsingNativeQuery();
 
     Page<Movie> findAll(Specification<Movie> movieSpecification, Pageable pageable);
+
+    @Query(value = "SELECT * FROM movies m WHERE m.wins > :minWins AND m.country = :country", nativeQuery = true)
+    List<Movie> findMoviesByWinsAndCountry(@Param("minWins") int minWins, @Param("country") String country);
+
 }

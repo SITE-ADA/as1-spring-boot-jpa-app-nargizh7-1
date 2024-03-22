@@ -33,6 +33,23 @@ public class DirectorServiceImpl implements DirectorService {
         return directorRepo.findAll(pageable);
     }
 
+    @Override
+    public void addMovieToDirector(Long directorId, Long movieId) {
+        Director director = directorRepo.findById(directorId).orElseThrow(() -> new RuntimeException("Director not found"));
+        Movie movie = movieRepo.findById(movieId).orElseThrow(() -> new RuntimeException("Movie not found"));
+        director.getMovies().add(movie);
+        directorRepo.save(director);
+    }
+
+    @Override
+    public void removeMovieFromDirector(Long directorId, Long movieId) {
+        Director director = directorRepo.findById(directorId).orElseThrow(() -> new RuntimeException("Director not found"));
+        Movie movie = movieRepo.findById(movieId).orElseThrow(() -> new RuntimeException("Movie not found"));
+        director.getMovies().remove(movie);
+        directorRepo.save(director);
+    }
+
+
     //Continuation of DirectorServiceImpl
     @Override
     public Director save(Director director) {

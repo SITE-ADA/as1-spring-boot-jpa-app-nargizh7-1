@@ -19,4 +19,6 @@ public interface MovieService {
 
     List<Movie> getAllWebMovies(String keyword);
 
+    List<Movie> getAllMovies(); // Add this method
+
 }

@@ -16,4 +16,11 @@ public interface DirectorService {
     List<Movie> getMoviesByDirectorId(Long id);
     List<Movie> getMoviesByDirectorIdNot(Long id);
     void deleteById(Long id);
+
+    // Add a movie to a director
+    void addMovieToDirector(Long directorId, Long movieId);
+
+    // Remove a movie from a director
+    void removeMovieFromDirector(Long directorId, Long movieId);
+
 }
