@@ -2,6 +2,9 @@
 
 This Spring Boot application demonstrates a movie and director management system, utilizing the H2 in-memory database for persistence with Java Persistence API (JPA). It offers a web interface for performing Create, Read, Update, and Delete (CRUD) operations on movie and director entities.
 
+**Link to the Video Sumbission:**
+-no link yet 
+
 ## Getting Started
 
 Before you begin, ensure you have the following installed on your system:
@@ -31,17 +34,17 @@ The application will start and be accessible at **`http://localhost:9090`**.
 
 After launching the application, navigate to http://localhost:9090 in your web browser to access the home page. This page provides navigation links to the movies and directors management sections, where you can perform various operations.
 
-## Navigating the Application
-
-- To add a new movie or director, use the 'Add New Movie' or 'Add New Director' links, fill in the form, and submit.
-- The list pages for movies and directors display all entries with options to update or delete each entry. Use the corresponding buttons beside each entry to perform these actions.
-- Sorting and filtering options are available above the list tables. Select your criteria and click 'Apply' to update the list accordingly.
-
 ## Features
 
 - **Home Page**: The landing page with navigation links to movies and directors management sections.
 - **Movies Management**: This section allows you to add, view, update, and delete movies. You can also sort and filter the list of movies based on different criteria.
 - **Directors Management**: Similar to movies, this section enables you to manage director entities with CRUD operations and offers sorting and filtering capabilities.
+
+## Navigating the Application
+
+- To add a new movie or director, use the 'Add New Movie' or 'Add New Director' links, fill in the form, and submit.
+- The list pages for movies and directors display all entries with options to update or delete each entry. Use the corresponding buttons beside each entry to perform these actions.
+- Sorting and filtering options are available above the list tables. Select your criteria and click 'Apply' to update the list accordingly.
 
 ## H2 Console
 
