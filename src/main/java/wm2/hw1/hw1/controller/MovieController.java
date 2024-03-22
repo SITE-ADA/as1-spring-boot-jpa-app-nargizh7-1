@@ -1,5 +1,6 @@
 package wm2.hw1.hw1.controller;
 
+import org.springframework.data.domain.Page;
 import wm2.hw1.hw1.model.Director;
 import wm2.hw1.hw1.model.Movie;
 import wm2.hw1.hw1.service.DirectorService;
@@ -10,7 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-
+import org.springframework.data.domain.Page;
 import java.util.List;
 
 @Controller
@@ -24,12 +25,24 @@ public class MovieController {
         this.movieService = movieService;
     }
 
-    @GetMapping({"", "/", "/list"})
-    public String getMovies(Model model) {
-        List<Movie> movies = movieService.list();
-        model.addAttribute("movies", movies);
 
-        LOGGER.info(movies.toString());
+    @GetMapping({"", "/", "/list"})
+    public String getMovies(Model model,
+                            @RequestParam(name = "pageNo", defaultValue = "1") Integer pageNo,
+                            @RequestParam(name = "sortField", defaultValue = "name") String sortField,
+                            @RequestParam(name = "sortDir", defaultValue = "asc") String sortDir,
+                            @RequestParam(name = "filterField", defaultValue = "") String filterField,
+                            @RequestParam(name = "filterValue", defaultValue = "") String filterValue) {
+        Page<Movie> moviesPage = movieService.list(pageNo, sortField, sortDir, filterField, filterValue);
+        model.addAttribute("movies", moviesPage.getContent());
+        model.addAttribute("currentPage", pageNo);
+        model.addAttribute("totalPages", moviesPage.getTotalPages());
+        model.addAttribute("nbElements", moviesPage.getNumberOfElements());
+        model.addAttribute("totalElements", moviesPage.getTotalElements());
+        model.addAttribute("sortField", sortField);
+        model.addAttribute("sortDir", sortDir);
+        model.addAttribute("filterField", filterField);
+        model.addAttribute("filterValue", filterValue);
 
         return "movies/index";
     }

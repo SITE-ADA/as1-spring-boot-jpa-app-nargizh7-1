@@ -1,5 +1,8 @@
 package wm2.hw1.hw1.repository;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import wm2.hw1.hw1.model.Movie;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -18,4 +21,6 @@ public interface MovieRepository extends JpaRepository<Movie, Long> {
 
     @Query(value = "select * from movies where description like '%Web%'", nativeQuery = true)
     Iterable<Movie> getAllWebMoviesUsingNativeQuery();
+
+    Page<Movie> findAll(Specification<Movie> movieSpecification, Pageable pageable);
 }
