@@ -23,4 +23,7 @@ public interface DirectorService {
     // Remove a movie from a director
     void removeMovieFromDirector(Long directorId, Long movieId);
 
+    List<Director> getAllDirectors();
+
+
 }

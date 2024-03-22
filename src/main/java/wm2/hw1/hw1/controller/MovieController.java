@@ -20,13 +20,13 @@ import java.util.stream.Collectors;
 public class MovieController {
     static final Logger LOGGER = LoggerFactory.getLogger(MovieController.class);
 
-    MovieService movieService;
+    private final MovieService movieService;
+    private final DirectorService directorService;
 
-    public MovieController(MovieService movieService) {
+    public MovieController(MovieService movieService, DirectorService directorService) {
         this.movieService = movieService;
+        this.directorService = directorService;
     }
-
-
     @GetMapping({"", "/", "/list"})
     public String getMovies(Model model,
                             @RequestParam(name = "pageNo", defaultValue = "1") Integer pageNo,
@@ -51,8 +51,11 @@ public class MovieController {
     @GetMapping("/new")
     public String createNewMovie(Model model) {
         model.addAttribute("movie", new Movie());
+        model.addAttribute("allDirectors", directorService.getAllDirectors()); // Assuming you have a method to get all directors
         return "movies/new";
     }
+
+
 
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Long id) {

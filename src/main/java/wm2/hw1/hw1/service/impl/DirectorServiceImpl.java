@@ -85,4 +85,9 @@ public class DirectorServiceImpl implements DirectorService {
     public List<Movie> getMoviesByDirectorIdNot(Long id) {
         return (List<Movie>) movieRepo.findByDirectorsIdNot(id);
     }
+    @Override
+    public List<Director> getAllDirectors() {
+        return directorRepo.findAll();
+    }
+
 }
