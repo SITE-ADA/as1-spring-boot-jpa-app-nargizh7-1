@@ -92,9 +92,13 @@ public class DirectorController {
     public ModelAndView updateDirector(@PathVariable Long id) {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("directors/update");
-        mv.addObject("director", directorService.getById(id));
+        Director director = directorService.getById(id);
+        mv.addObject("director", director);
+        mv.addObject("allMovies", movieService.getAllMovies());
+        mv.addObject("assignedMovies", director.getMovies());
         return mv;
     }
+
 
     @GetMapping("/and/{firstName}/{lastName}")
     public String getDirectorByNameAnd(Model model, @PathVariable String firstName, @PathVariable String lastName) {

@@ -67,10 +67,13 @@ public class MovieController {
     public ModelAndView updateMovie(@PathVariable Long id) {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("movies/update");
-
-        mv.addObject("movie", movieService.getById(id));
+        Movie movie = movieService.getById(id);
+        mv.addObject("movie", movie);
+        mv.addObject("allDirectors", directorService.getAllDirectors());
+        mv.addObject("assignedDirectors", movie.getDirectors());
         return mv;
     }
+
 
     @GetMapping("/filter/{keyword}")
     public String getWebMovies(Model model, @PathVariable String keyword) {

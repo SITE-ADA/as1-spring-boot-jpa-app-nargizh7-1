@@ -106,6 +106,12 @@ select[multiple] option:hover {
         <input type="hidden" th:field="*{id}"> <br/>
         <input type="text" th:field="*{firstName}" placeholder="First Name"/> <br/>
         <input type="text" th:field="*{lastName}" placeholder="Last Name"/> <br/>
+        <select multiple="multiple" th:field="*{movies}">
+            <option th:each="movie : ${allMovies}"
+                    th:value="${movie.id}"
+                    th:text="${movie.name}"
+                    th:selected="${assignedMovies.contains(movie)}"></option>
+        </select>
         <br></br>
         <input type="submit" value="Update Director"/>
     </form>
