@@ -212,12 +212,10 @@
 
 <!-- Pagination Links -->
 <div>
-    <a th:if="${currentPage != 1}" th:href="@{'/director/list?pageNo=' + (${currentPage} - 1)}">&laquo; Previous</a>
     <span th:each="pageNum : ${#numbers.sequence(1, totalPages)}">
         <a th:if="${pageNum != currentPage}" th:href="@{'/director/list?pageNo=' + ${pageNum}}" th:text="${pageNum}"></a>
         <span th:if="${pageNum == currentPage}" th:text="${pageNum}"></span>
     </span>
-    <a th:if="${currentPage != totalPages}" th:href="@{'/director/list?pageNo=' + (${currentPage} + 1)}">Next &raquo;</a>
 </div>
 
 <div class="page-info">

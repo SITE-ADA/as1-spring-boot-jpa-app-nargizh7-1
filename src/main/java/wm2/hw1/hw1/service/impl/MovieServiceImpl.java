@@ -36,6 +36,7 @@ public class MovieServiceImpl implements MovieService {
         return movieRepo.findAll(pageable);
     }
 
+
     @Override
     public Movie save(Movie movie) {
         return movieRepo.save(movie);

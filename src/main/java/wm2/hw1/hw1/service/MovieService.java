@@ -8,8 +8,6 @@ import java.util.Optional;
 
 public interface MovieService {
 
-    Page<Movie> list(int pageNo, String sortField, String sortDir, String filterField, String filterValue);
-
 
     Movie save(Movie movie);
 
@@ -20,5 +18,7 @@ public interface MovieService {
     List<Movie> getAllWebMovies(String keyword);
 
     List<Movie> getAllMovies(); // Add this method
+
+    Page<Movie> list(int pageNo, String sortField, String sortDir, String filterField, String filterValue);
 
 }
