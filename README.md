@@ -3,7 +3,8 @@
 This Spring Boot application demonstrates a movie and director management system, utilizing the H2 in-memory database for persistence with Java Persistence API (JPA). It offers a web interface for performing Create, Read, Update, and Delete (CRUD) operations on movie and director entities.
 
 **Link to the Video Sumbission:**
--no link yet 
+[https://youtu.be/LrkDW8TeL5k?si=-4MOSs73-4OZz6I7
+](https://youtu.be/LrkDW8TeL5k?si=yP_2C2ddLMwhU3IW)
 
 ## Getting Started
 
