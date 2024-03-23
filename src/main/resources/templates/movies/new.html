@@ -74,6 +74,26 @@
             background: linear-gradient(45deg, #D500F9, #E040FB);
             color: #FFF;
         }
+select[multiple] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #4AD9D9;
+    border-radius: 5px;
+    background-color: #002233;
+    color: #E8E9EB;
+    height: auto;
+    min-height: 100px;
+    overflow-y: auto;
+}
+
+select[multiple] option {
+    padding: 5px;
+}
+
+select[multiple] option:hover {
+    background-color: #4AD9D9;
+    color: #002233;
+}
 
     </style>
 </head>
@@ -89,6 +109,7 @@
         <select multiple="multiple" th:field="*{directors}">
             <option th:each="director : ${allDirectors}" th:value="${director.id}" th:text="${director.firstName} + ' ' + ${director.lastName}"></option>
         </select>
+        <br></br>
         <input type="submit" value="Save Movie"/>
     </form>
 
